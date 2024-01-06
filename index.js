@@ -52,9 +52,15 @@ function prosesEmailMasuk(email) {
     kirimNotifikasiKePenggunaAkhir(penerima, subjek, isi);
 }
 
+const functionCreateNumber = (value) => {
+    return value + 1;
+}
+
 // Fungsi untuk mengambil email dari kotak surat
 function fetchEmails() {
     const imap = new Imap(imapConfig);
+    const data = functionCreateNumber(1);
+    console.log(data)
 
     imap.once('ready', function () {
         imap.openBox('INBOX', true, function (err, box) {
